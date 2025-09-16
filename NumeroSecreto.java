@@ -15,11 +15,17 @@ public class NumeroSecreto {
         int NumeroSecreto = NumeroAleatorio.nextInt(1, 11);
         
         int tentativas = 0;
-        int N;
+        int N = 0;
         
     do{  
         System.out.println("Tente adivinhar o número secreto, digite de 1 a 10: ");
-        N = scanner.nextInt();
+        try {
+        N = scanner.nextInt(); 
+        } catch (Exception e) {
+        System.out.println("Por favor, digite apenas números inteiros!");
+        scanner.next(); 
+        continue;
+        }
         
         if(N > NumeroSecreto){
             
@@ -42,7 +48,6 @@ public class NumeroSecreto {
         } else if (tentativas > 1) {
         System.out.println("Você acertou em " + tentativas + " tentativas.");
         }
-       
-        scanner.close();
+
     }
 }
